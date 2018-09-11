@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/BTree.dir/main.cpp.o CMakeFiles/BTree.dir/src/BTree.cpp.o CMakeFiles/BTree.dir/src/Node.cpp.o  -o BTree 
