@@ -20,7 +20,7 @@ a simple btree(sort left < right)
 * 2-delete node X4/X7(only has left child or right child)  
 `let parent node left/right node pointer point X4/X7 only child`  
 
-*3-delete node X2/X3(node has left and right child)  
+* 3-delete node X2/X3(node has left and right child)  
 `1)find left child tree largest node, replace the delete node`  
 `2)delete the largest node parent pointer(here is X5)`  
 or  
