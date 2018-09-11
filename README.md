@@ -1,5 +1,5 @@
-# BTree-cpp
-simple b-tree data structure c plus plus impletation
+# Simple binary search tree
+simple binary search tree data structure c plus plus impletation
 
 ## delete Algorithm
 a simple btree(sort: left < right)  
