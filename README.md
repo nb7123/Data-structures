@@ -1,2 +1,2 @@
 # BTree-cpp
-BTree data structure c plus plus impletation
+simple b-tree data structure c plus plus impletation
