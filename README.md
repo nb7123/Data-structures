@@ -2,7 +2,7 @@
 simple b-tree data structure c plus plus impletation
 
 ## delete Algorithm
-a simple btree(sort left < right)  
+a simple btree(sort: left < right)  
 ```  
                         X1
                      /     \
@@ -14,7 +14,7 @@ a simple btree(sort left < right)
                  \             /
                 X12          X13
 ``` 
-* 1-delete node X4(leaf node)  
+* 1-delete node X12/X13(leaf node)  
 `delete directly`
      
 * 2-delete node X4/X7(only has left child or right child)  
