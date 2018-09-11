@@ -23,7 +23,7 @@ Node::Node(int type, int value) {
 Node::~Node() {
     delete(left);
     delete(right);
-    std::cout << "Delete node: " << value << std::endl;
+//    std::cout << "Delete node: " << value << std::endl;
 }
 
 bool Node::isLeaf() {
