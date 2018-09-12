@@ -11,14 +11,17 @@
 class BTree {
 private:
     Node *root;
+    int depth;
     void insert(Node *parent, const int &value);
     Node *find(Node *parent, const int &value);
     Node *findMinNode(Node *root);
     Node *findMaxNode(Node *root);
+    int  calDepth(Node *root);
 
     /**
-     * delete left leaf
-     * situation 1, a simple btree
+     * delete Algorithm
+     *
+     *             a simple btree
      *
      **                   X1
      **                /     \
@@ -52,7 +55,6 @@ private:
     void printL2R(Node *root);
     void printMinddle(Node *root);
     void printR2L(Node *root);
-    int height(Node *root);
 
 public:
     BTree();
@@ -63,8 +65,7 @@ public:
     void printL2R();
     void printMinddle();
     void printR2L();
-
-    int height();
+    int getDepth();
 
     ~BTree();
 };

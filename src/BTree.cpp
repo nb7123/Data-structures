@@ -6,7 +6,8 @@
 #include "BTree.h"
 
 BTree::BTree() {
-
+    root = nullptr;
+    depth = 0;
 }
 
 void BTree::insert(Node *parent, const int &value) {
@@ -16,6 +17,8 @@ void BTree::insert(Node *parent, const int &value) {
             auto node = new Node(Node::NODE_TYPE_LEFT, value);
             node->parent = parent;
             parent->left = node;
+
+            depth = calDepth(root);
         }
     } else {
         if (parent->right) insert(parent->right, value);
@@ -24,8 +27,23 @@ void BTree::insert(Node *parent, const int &value) {
             node->parent = parent;
             parent->right = node;
 
+            depth = calDepth(root);
         }
     }
+}
+
+int BTree::calDepth(Node *root) {
+    int depth = 0;
+    if (root) {
+        depth = 1;
+        int l = calDepth(root->left);
+        int r = calDepth(root->right);
+        depth += l > r ? l : r;
+    } else {
+        depth = 0;
+    }
+
+    return depth;
 }
 
 Node *BTree::find(Node *parent, const int &value) {
@@ -124,6 +142,7 @@ bool BTree::delNode(Node *parent, const int &value) {
 bool BTree::insert(const int &value) {
     if (!root) {
         root = new Node(Node::NODE_TYPE_ROOT, value);
+        depth += 1;
     }
 
     Node *exist = find(value);
@@ -186,19 +205,8 @@ void BTree::printR2L(Node *root) {
     }
 }
 
-int BTree::height(Node *root) {
-    int h = 1;
-    if (root) {
-        auto l = height(root->left);
-        auto r = height(root->right);
-        h += (l > r ? l : r);
-    }
-
-    return h;
-}
-
-int BTree::height() {
-    return height(root);
+int BTree::getDepth() {
+    return this->depth;
 }
 
 BTree::~BTree() {

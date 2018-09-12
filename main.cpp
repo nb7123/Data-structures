@@ -49,7 +49,7 @@ int main() {
     std::cout << "Find value: " << value
               << ", node info: " << found << std::endl;
 
-    std::cout << "BTree height: " << bTree.height() << std::endl;
+    std::cout << "BTree height: " << bTree.getDepth() << std::endl;
 
     return 0;
 }

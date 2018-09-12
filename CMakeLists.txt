@@ -3,4 +3,11 @@ project(BTree)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(BTree main.cpp src/BTree.cpp src/BTree.h src/Node.cpp src/Node.h)
+include_directories(src)
+
+add_executable(BTree
+        src/BTree.cpp
+        src/BTree.h
+        src/Node.cpp
+        src/Node.h
+        main.cpp)
