@@ -1,5 +1,5 @@
 #include <iostream>
-#include "src/BTree.h"
+#include "bstree/BSTree.h"
 
 int main() {
     std::cout << "BTee test..." << std::endl;
@@ -15,7 +15,7 @@ int main() {
 
     std::cout << "Build BTree use the 100 integer values..." << std::endl;
 
-    BTree bTree = BTree();
+    BSTree bTree = BSTree();
 
     for (int j = 0; j < 100; ++j) {
         bTree.insert(values[j]);

@@ -6,9 +6,9 @@
 #define BTREE_BTREE_H
 
 
-#include "Node.h"
+#include "BSNode.h"
 
-class BTree {
+class BSTree {
 private:
     Node *root;
     int depth;
@@ -57,7 +57,7 @@ private:
     void printR2L(Node *root);
 
 public:
-    BTree();
+    BSTree();
 
     bool insert(const int &value);
     Node *find(const int &value);
@@ -67,7 +67,7 @@ public:
     void printR2L();
     int getDepth();
 
-    ~BTree();
+    ~BSTree();
 };
 
 

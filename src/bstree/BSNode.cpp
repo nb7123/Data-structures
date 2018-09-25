@@ -3,7 +3,7 @@
 //
 
 #include <iostream>
-#include "Node.h"
+#include "BSNode.h"
 
 void Node::print() {
     std::cout << value << std::endl;

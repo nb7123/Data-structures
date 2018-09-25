@@ -3,14 +3,14 @@
 //
 
 #include <cassert>
-#include "BTree.h"
+#include "BSTree.h"
 
-BTree::BTree() {
+BSTree::BSTree() {
     root = nullptr;
     depth = 0;
 }
 
-void BTree::insert(Node *parent, const int &value) {
+void BSTree::insert(Node *parent, const int &value) {
     if (parent->value > value) {
         if (parent->left) insert(parent->left, value);
         else {
@@ -32,7 +32,7 @@ void BTree::insert(Node *parent, const int &value) {
     }
 }
 
-int BTree::calDepth(Node *root) {
+int BSTree::calDepth(Node *root) {
     int depth = 0;
     if (root) {
         depth = 1;
@@ -46,7 +46,7 @@ int BTree::calDepth(Node *root) {
     return depth;
 }
 
-Node *BTree::find(Node *parent, const int &value) {
+Node *BSTree::find(Node *parent, const int &value) {
     Node *found = nullptr;
 
     if (parent) {
@@ -62,7 +62,7 @@ Node *BTree::find(Node *parent, const int &value) {
     return found;
 }
 
-Node *BTree::findMinNode(Node *root) {
+Node *BSTree::findMinNode(Node *root) {
     Node *node = nullptr;
     if (root->isLeaf() || !(root->left)) {
         node = root;
@@ -73,7 +73,7 @@ Node *BTree::findMinNode(Node *root) {
     return node;
 }
 
-Node *BTree::findMaxNode(Node *root) {
+Node *BSTree::findMaxNode(Node *root) {
     Node *node = nullptr;
     if (root->isLeaf() || !(root->right)) {
         node = root;
@@ -84,7 +84,7 @@ Node *BTree::findMaxNode(Node *root) {
     return node;
 }
 
-bool BTree::delNode(Node *parent, const int &value) {
+bool BSTree::delNode(Node *parent, const int &value) {
     bool deleted = false;
 
     if (parent) {
@@ -139,7 +139,7 @@ bool BTree::delNode(Node *parent, const int &value) {
     return deleted;
 }
 
-bool BTree::insert(const int &value) {
+bool BSTree::insert(const int &value) {
     if (!root) {
         root = new Node(Node::NODE_TYPE_ROOT, value);
         depth += 1;
@@ -155,27 +155,27 @@ bool BTree::insert(const int &value) {
     return inserted;
 }
 
-Node *BTree::find(const int &value) {
+Node *BSTree::find(const int &value) {
     return find(root, value);
 }
 
-bool BTree::delNode(const int &value) {
+bool BSTree::delNode(const int &value) {
     return delNode(root, value);
 }
 
-void BTree::printL2R() {
+void BSTree::printL2R() {
     printL2R(root);
 }
 
-void BTree::printMinddle() {
+void BSTree::printMinddle() {
     printMinddle(root);
 }
 
-void BTree::printR2L() {
+void BSTree::printR2L() {
     printR2L(root);
 }
 
-void BTree::printL2R(Node *root) {
+void BSTree::printL2R(Node *root) {
     if (root->left) {
         printL2R(root->left);
     }
@@ -185,7 +185,7 @@ void BTree::printL2R(Node *root) {
     }
 }
 
-void BTree::printMinddle(Node *root) {
+void BSTree::printMinddle(Node *root) {
     root->print();
     if (root->left) {
         printMinddle(root->left);
@@ -195,7 +195,7 @@ void BTree::printMinddle(Node *root) {
     }
 }
 
-void BTree::printR2L(Node *root) {
+void BSTree::printR2L(Node *root) {
     if (root->right) {
         printR2L(root->right);
     }
@@ -205,10 +205,10 @@ void BTree::printR2L(Node *root) {
     }
 }
 
-int BTree::getDepth() {
+int BSTree::getDepth() {
     return this->depth;
 }
 
-BTree::~BTree() {
+BSTree::~BSTree() {
     if (root) delete root;
 }
