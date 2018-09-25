@@ -2,7 +2,7 @@
 simple binary search tree data structure c plus plus impletation
 
 ## delete Algorithm
-a simple btree(sort: left < right)  
+a simple bstree(sort: left < right)  
 ```  
                         X1
                      /     \
