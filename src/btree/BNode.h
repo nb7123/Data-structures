@@ -18,18 +18,33 @@ private:
     /**
      * children pointers
      */
-    std::vector<BNode*> child;
+    std::vector<BNode*> children;
     /**
      * parent pointer
      */
     BNode *parent;
 
+    bool containKey(int key);
+
 public:
     explicit BNode();
+    static BNode *merge(BNode *root);
     bool insert(int key);
-    bool isFull(int m);
+    bool needSplit(int order);
+    bool needMerge(int order);
     bool isLeaf();
+    void split(int order);
     int keyCount();
+    static BNode *find(BNode *root, int key);
+
+    int keyAt(int index);
+    BNode *childAt(int index);
+
+    int minKey();
+    int maxKey();
+    BNode *leftChild();
+    BNode *rightChild();
+
     ~BNode();
 };
 

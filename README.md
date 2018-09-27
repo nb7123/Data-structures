@@ -17,13 +17,13 @@ a simple btree(sort: left < right)
 * 1-delete node X12/X13(leaf node)  
 `delete directly`
      
-* 2-delete node X4/X7(only has left child or right child)  
-`let parent node left/right node pointer point X4/X7 only child`  
+* 2-delete node X4/X7(only has left children or right children)
+`let parent node left/right node pointer point X4/X7 only children`
 
-* 3-delete node X2/X3(node has left and right child)  
-`1)find left child tree largest node, replace the delete node`  
+* 3-delete node X2/X3(node has left and right children)
+`1)find left children tree largest node, replace the delete node`
 `2)delete the largest node parent pointer(here is X5)`  
 or  
-`1)find right child tree min node, replace the delete node`  
+`1)find right children tree min node, replace the delete node`
 `2)delete the largest node parent pointer(here is X6)`  
 ```

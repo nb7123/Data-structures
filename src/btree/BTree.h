@@ -6,8 +6,28 @@
 #define BTREE_BTREE_H
 
 
-class BTree {
+#include "BNode.h"
 
+class BTree {
+private:
+    BNode *root;
+    int depth;
+    int order;
+    void insertKey(BNode *node, int key);
+
+    void print(BNode *node);
+
+public:
+    explicit BTree(int order);
+
+    void insertKey(int key);
+    bool delKey(int key);
+    BNode *findKeyNode(int key);
+    int getDepth();
+
+    void print();
+
+    ~BTree();
 };
 
 
