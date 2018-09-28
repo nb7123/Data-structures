@@ -4,6 +4,8 @@
 
 #include <iostream>
 #include <map>
+#include <cmath>
+#include <iomanip>
 #include "BTree.h"
 
 BTree::BTree(int order): order(order) {
@@ -36,12 +38,14 @@ void BTree::insertKey(BNode *node, int key) {
         }
     }
 
-    if (inserted && node->needSplit(order)) {
+    while (inserted && node && node->needSplit(order)) {
         node->split(order);
 
         if (node == this->root) {
             depth += 1;
         }
+
+        node = node->getParent();
     }
 }
 
@@ -123,12 +127,12 @@ void BTree::print() {
     printData(root, data, 0);
 
     for (int i = 0; i < depth; ++i) {
-        for (int j = (depth - i - 1) * 8 + 1; j > 1; --j) {
-            std::cout << " ";
-        }
+//        for (auto j = static_cast<int>(pow(order, (depth - i - 1))); j > 1; --j) {
+//            std::cout << std::setw(10) << " ";
+//        }
 
         for (int &it : data[i]) {
-            std::cout << it << "   ";
+            std::cout << std::setw(10) << it << "   ";
         }
 
         std::cout << std::endl;

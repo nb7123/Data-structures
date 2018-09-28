@@ -102,7 +102,6 @@ void BNode::split(int order) {
 
         // middle key
         auto mid = order / 2;
-        auto midKey = keys[mid];
 
         // split parent node keys to minNode and maxNode
         for (int i = order-1; i > mid; --i) {
@@ -125,7 +124,15 @@ void BNode::split(int order) {
         minNode->children.push_back(children.front());
         children.erase(children.begin());
 
-        assert(children.size() == 0);
+        assert(children.empty());
+
+        for (auto &it : minNode->children) {
+            if (it) it->parent = minNode;
+        }
+
+        for (auto &it : maxNode->children) {
+            if (it) it->parent = maxNode;
+        }
 
         children.push_back(minNode);
         children.push_back(maxNode);
@@ -150,19 +157,26 @@ void BNode::split(int order) {
 
         // find self position in parent
         int position = -1;
-        for (int i = 0; i < children.size(); ++i) {
-            if (children[i] == this) {
+        for (int i = 0; i < parent->children.size(); ++i) {
+            if (parent->children[i] == this) {
                 position = i;
                 break;
             }
         }
 
+        if (position < 0) {
+            children.pop_back();
+        }
+
         assert(position >= 0);
 
-        keys.insert(keys.begin() + position - 1, midKey);
-        children.insert(children.begin()+position+1, maxNode);
-
         maxNode->parent = parent;
+        for (auto &it : maxNode->children) {
+            if (it) it->parent = maxNode;
+        }
+
+        parent->keys.insert(parent->keys.begin() + position, midKey);
+        parent->children.insert(parent->children.begin()+position+1, maxNode);
     }
 
     assert(keys.size() + 1 == children.size());
@@ -231,6 +245,10 @@ BNode *BNode::leftChild() {
 
 BNode *BNode::rightChild() {
     return children.back();
+}
+
+BNode *BNode::getParent() {
+    return parent;
 }
 
 BNode::~BNode() {

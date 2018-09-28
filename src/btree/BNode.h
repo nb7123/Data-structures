@@ -45,6 +45,8 @@ public:
     BNode *leftChild();
     BNode *rightChild();
 
+    BNode *getParent();
+
     ~BNode();
 };
 

@@ -54,21 +54,13 @@ void testBST() {
 }
 
 void testBT() {
-    BTree bTree(5);
+    BTree bTree(3);
 
-    bTree.insertKey(15);
-    bTree.insertKey(16);
-    bTree.insertKey(16);
-    bTree.insertKey(17);
-    bTree.insertKey(18);
-    bTree.insertKey(19);
-    bTree.insertKey(17);
-    bTree.insertKey(19);
-    bTree.insertKey(20);
-    bTree.insertKey(23);
-    bTree.insertKey(25);
-    bTree.insertKey(8);
-    bTree.insertKey(7);
+    srand(static_cast<unsigned int>(time(nullptr)));
+
+    for (int i = 0; i < 1000; ++i) {
+        bTree.insertKey(static_cast<int>(random()));
+    }
 
     bTree.print();
 }
