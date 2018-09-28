@@ -1,7 +1,19 @@
-# Simple binary search tree
+# data structures
+* [BTree](#btree)
+* [BSTree](#bstree)
+
+# <a name="btree"/>BTree sample
+a simple btree( order = 3 )
+```
+                              P1 K1 P2 K2 P3
+                            /        |      \
+              P4 K4 P5 K5 P6     P7 K7 P8    P9 K9 P10 K10 P11
+```
+
+# <a name="bstree"/>Simple binary search tree
 simple binary search tree data structure c plus plus impletation
 
-## delete Algorithm
+`BST delete Algorithm`  
 a simple bstree(sort: left < right)  
 ```  
                         X1
